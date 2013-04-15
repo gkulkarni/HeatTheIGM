@@ -63,11 +63,15 @@ PROGRAM REION
   ! ----------------------------------------
 
   comnum = command_argument_count()
-  if (comnum /= 4) then 
-     write (0, '(a)') 'Usage: ./reion RGNOVD RGNSIZE ZLUM FESC'
-     write (0, '(a)') 'Example: ./reion 4.0 7.746 6.5 0.3'
+  if (comnum /= 1) then 
+     write (0, '(a)') 'Usage: ./thermal FESC'
+     write (0, '(a)') 'Example: ./thermal 0.3'
      stop
   end if
+
+  RGNOVD = 4.0 
+  RGNSIZE = 7.746 
+  ZLUM = 6.5 
 
   CALL GET_COMMAND_ARGUMENT(1, RGNOVDARG) 
   CALL GET_COMMAND_ARGUMENT(2, RGNSIZEARG) 

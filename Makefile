@@ -38,8 +38,8 @@ FORSAMPLE = constants.o
 %.o: %.f90
 	$(COMPILE.f) $(OUTPUT_OPTION) $<
 
-reion : $(OBJECTS) main.o readin.inc 
-	$(FC) $(FFLAGS) -o reion $(OBJECTS) main.o
+thermal : $(OBJECTS) main.o readin.inc 
+	$(FC) $(FFLAGS) -o thermal $(OBJECTS) main.o
 
 testejrate: $(OBJECTS) testejrate.o 
 	$(FC) $(FFLAGS) -o testejrate $(OBJECTS) testejrate.o
