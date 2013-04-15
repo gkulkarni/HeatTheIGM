@@ -135,7 +135,7 @@
 
   !--------------------------
 
-  OPEN(11, FILE='/home/girish/reion-eq/popsyn/l1500-spectrum-lt.dat', STATUS='OLD', ACTION='READ')
+  OPEN(11, FILE='/home/girish/thermal/data/popsyn/l1500-spectrum-lt.dat', STATUS='OLD', ACTION='READ')
 
   ! Count number of lines in file.
   NUMBER_OF_LINES = 0
