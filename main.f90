@@ -174,125 +174,6 @@ PROGRAM REION
   TAU = 0.0_PREC 
   TAU1 = TAUINT(FV, Q, X_IIVA, Z) 
 
-  m_str = 0.0_prec 
-  m_ism = 1.0e-4_prec
-  m_igm = rho_baryon 
-
-  xism_fe = 0.0_prec 
-  xism_c = 0.0_prec 
-  xism_o = 0.0_prec 
-  xism_n = 0.0_prec 
-  xism_si = 0.0_prec 
-  xism_mg = 0.0_prec 
-  xism_zn = 0.0_prec 
-  xism_tot = 0.0_prec 
-
-  xigm_fe = 0.0_prec 
-  xigm_c = 0.0_prec 
-  xigm_o = 0.0_prec 
-  xigm_n = 0.0_prec 
-  xigm_si = 0.0_prec 
-  xigm_zn = 0.0_prec 
-  xigm_mg = 0.0_prec 
-  xigm_tot = 0.0_prec 
-
-  metarr(1) = 0.0_prec 
-
-  !------------------------------
-
-!!$  mhalo_high = 1.0e3_prec ! 10^10 M_solar 
-!!$  mhalo_low = 1.0_prec ! 10^10 M_solar 
-
-  mhalo_high = 0.5e-3_prec ! 10^10 M_solar 
-  mhalo_low = 1.0e-6_prec ! 10^10 M_solar 
-
-  BinsPerDecade = 100.0_prec
-  ! BinsPerDecade = 30.0_prec
-  log_multiplier = 10.0_prec**(1.0_prec/BinsPerDecade)
-  n_halocalc = int(log10(mhalo_high/mhalo_low)/log10(log_multiplier))+1 
-
-  allocate(m_halosc(n_halocalc))
-  allocate(mstar_halosc(n_halocalc))
-  allocate(mstardot_halosc(n_halocalc))
-  allocate(mgas_halosc(n_halocalc)) 
-  allocate(mcoolgas_halosc(n_halocalc)) 
-  allocate(mmetal_halosc(n_halocalc)) 
-  allocate(mC_halosc(n_halocalc)) 
-  allocate(mFe_halosc(n_halocalc)) 
-  allocate(mO_halosc(n_halocalc)) 
-  allocate(mN_halosc(n_halocalc)) 
-  allocate(mSi_halosc(n_halocalc)) 
-  allocate(mZn_halosc(n_halocalc)) 
-  allocate(mMg_halosc(n_halocalc)) 
-  allocate(febyh_halosc(n_halocalc)) 
-  allocate(cbyh_halosc(n_halocalc)) 
-  allocate(obyh_halosc(n_halocalc)) 
-  allocate(strpop_halosc(n_halocalc))
-  allocate(ismz_halosc(n_halocalc)) 
-  allocate(aux_halosc(n_halocalc)) 
-
-  allocate(m_halosh(n_halocalc))
-  allocate(mstar_halosh(n_halocalc))
-  allocate(mstardot_halosh(n_halocalc))
-  allocate(mgas_halosh(n_halocalc)) 
-  allocate(mcoolgas_halosh(n_halocalc)) 
-  allocate(mmetal_halosh(n_halocalc)) 
-  allocate(mC_halosh(n_halocalc)) 
-  allocate(mFe_halosh(n_halocalc)) 
-  allocate(mO_halosh(n_halocalc)) 
-  allocate(mN_halosh(n_halocalc)) 
-  allocate(mSi_halosh(n_halocalc)) 
-  allocate(mZn_halosh(n_halocalc)) 
-  allocate(mMg_halosh(n_halocalc)) 
-  allocate(febyh_halosh(n_halocalc)) 
-  allocate(cbyh_halosh(n_halocalc)) 
-  allocate(obyh_halosh(n_halocalc)) 
-  allocate(strpop_halosh(n_halocalc))
-  allocate(ismz_halosh(n_halocalc)) 
-  allocate(aux_halosh(n_halocalc)) 
-  allocate(nofmc(n_halocalc))
-  allocate(nofmh(n_halocalc)) 
-  allocate(halol1500(n_halocalc))
-
-  allocate(t_zn(n_halocalc), t_fe(n_halocalc), t_si(n_halocalc), t_o(n_halocalc))
-
-  m = mhalo_low 
-  do i = 1, n_halocalc 
-     m_halosc(i) = m; m_halosh(i) = m 
-     m = m*log_multiplier 
-
-     strpop_halosc(i) = 3; strpop_halosh(i) = 3 
-
-     mmetal_halosc(i) = 0.0_prec; mmetal_halosh(i) = 0.0_prec 
-     mgas_halosc(i) = 0.0_prec; mgas_halosh(i) = 0.0_prec 
-     mcoolgas_halosc(i) = 0.0_prec; mcoolgas_halosh(i) = 0.0_prec 
-     mstar_halosc(i) = 0.0_prec; mstar_halosh(i) = 0.0_prec 
-     mstardot_halosc(i) = 0.0_prec; mstardot_halosh(i) = 0.0_prec 
-     mC_halosc(i) = 0.0_prec; mC_halosh(i) = 0.0_prec 
-     mFe_halosc(i) = 0.0_prec; mFe_halosh(i) = 0.0_prec 
-     mO_halosc(i) = 0.0_prec; mO_halosh(i) = 0.0_prec 
-     mN_halosc(i) = 0.0_prec; mN_halosh(i) = 0.0_prec 
-     mSi_halosc(i) = 0.0_prec; mSi_halosh(i) = 0.0_prec 
-     mZn_halosc(i) = 0.0_prec; mZn_halosh(i) = 0.0_prec 
-     mMg_halosc(i) = 0.0_prec; mMg_halosh(i) = 0.0_prec 
-     ismz_halosc(i) = 0.0_prec; ismz_halosh(i) = 0.0_prec 
-     nofmc(i) = 0.0_prec; nofmh(i) = 0.0_prec 
-
-     t_zn(i) = 0.0_prec 
-     t_si(i) = 0.0_prec 
-     t_fe(i) = 0.0_prec 
-     t_o(i) = 0.0_prec 
-  end do
-
-  allocate(sfrarr_halocalc_cold(ncalc, n_halocalc))
-  allocate(sfrarr_halocalc_hot(ncalc, n_halocalc))
-  allocate(sfrarr_halocalc(ncalc, n_halocalc)) ! Used in hallum.f90. 
-  allocate(halopop_hot(ncalc, n_halocalc))
-  allocate(halopop_cold(ncalc, n_halocalc))
-
-  zlim = 10.0_prec 
-  maglim = -18.0_prec 
-
   do 
      countr = countr + 1 
      z = z + dz 
@@ -331,7 +212,7 @@ PROGRAM REION
 
      ! Update ionized hydrogen fraction (x_ii) in ionized region. 
      gamma_rec = r*nh_proper*alpha_r*cmbympccb*yrbys ! yr^-1 
-     gamma_ion = (gpi_pop2*source_pop2+gpi_pop3*source_pop3)*&
+     gamma_ion = (gpi_pop2*source*1.0e-10_prec)*&
           &fesc*lmfp*(1.0_prec+z)**3*(cmbympc**2)/q ! yr^-1 
 
      a = gamma_rec*dz*dtdz(z)
@@ -371,28 +252,15 @@ PROGRAM REION
           &(2.726*(1.0_prec+z)-temph)*nhii*erg2j*yrbys*cmbympccb ! J Mpc^-3 yr^-1 
 
      nhi = nh*(1.0_prec-oldxii) 
-     gammaph = (gph_pop2*source_pop2+gph_pop3*source_pop3)*fesc*&
+     gammaph = (gph_pop2*source*1.0e-10_prec)*fesc*&
           &lmfp*(1.0_prec+z)**3*(cmbympc**2)  ! J/yr 
      gamma_heat = gammaph*nhi*(1.0_prec+z)**3/q ! J mpc^-3 yr^-1 
 
-!!$     heatcool = 2.0_prec*(gamma_heat-gamma_totc)/&
-!!$          &(3.0_prec*nh_proper*kboltz) ! K yr^-1 
      heatcool = 2.0_prec*(gamma_heat-gamma_totc)/&
           &(3.0_prec*nh_proper*(1.0_prec+x_ii)*kboltz) ! K yr^-1 
      temph = (temph + dz*dtdz(z)*heatcool) / &
           &(1.0_prec + 2.0_prec*hubp(z)*dz*dtdz(z)+ &
           &((x_ii-oldxii)/(1.0_prec+oldxii)))
-!!$     if (preoverlap) then 
-!!$        temph = (temph + dz*dtdz(z)*heatcool) / &
-!!$             &(1.0_prec + 2.0_prec*hubp(z)*dz*dtdz(z)+ &
-!!$             &((x_ii-x2init)/(1.0_prec+x_ii)))
-!!$        !temph = abs(temph)
-!!$     else 
-!!$        temph = (temph + dz*dtdz(z)*heatcool) / &
-!!$             &(1.0_prec + 2.0_prec*hubp(z)*dz*dtdz(z)+ &
-!!$             &((x_ii-oldxii)/(1.0_prec+x_ii)))
-!!$        !temph = abs(temph)
-!!$     end if
      tempc = tempc+dz*dtempcdz(z) ! K
 
      mu_MeanMolWt = 1.0_prec / (1.0_prec + x_ii)
@@ -407,13 +275,9 @@ PROGRAM REION
      vcirc = sqrt(2.0_prec*kboltz*temph/mproton)
 
      ! Calculate corresponding Jeans mass. 
-     ! jnsln = jeans_length(temph,z) ! Mpc 
      jnsln = jeans_length(temphva,z) ! Mpc 
      global_t = q*temph+(1.0_prec-q)*tempc
      sigmab = sigma_baryon(z, global_t) 
-     ! sigmab = sigma_baryon(z, temphva) 
-
-     ! sigmab = sigma_baryon(z, temph) 
      jnsm = (4.0_prec*pi*rho_baryon*jnsln**3)/3.0_prec ! 10^10 M_solar
      jmharr(countr) = jnsm
 
@@ -427,7 +291,6 @@ PROGRAM REION
         oldfm = f_m 
         f_m = igmfpreo()
         fv = igmvfrac(igmdcrit) 
-        ! lmfp = q**(1.0_prec/3.0_prec)*lmfp0*jnsln/((1.0_prec-q*fv)**(2.0_prec/3.0_prec)) ! Mpc 
         lmfp = q**(1.0_prec/3.0_prec)*lmfp0*jnsln/((1.0_prec-fv)**(2.0_prec/3.0_prec)) ! Mpc 
 
         dfm = f_m - oldfm 
@@ -467,7 +330,6 @@ PROGRAM REION
 
         r = clumpfac(igmdcrit)
         fv = igmvfrac(igmdcrit) 
-        ! lmfp = q**(1.0_prec/3.0_prec)*lmfp0*jnsln/((1.0_prec-q*fv)**(2.0_prec/3.0_prec)) ! mpc 
         lmfp = q**(1.0_prec/3.0_prec)*lmfp0*jnsln/((1.0_prec-fv)**(2.0_prec/3.0_prec)) ! mpc 
      end if
 
@@ -483,9 +345,11 @@ PROGRAM REION
 
      dnlldz = speed_of_light*cmbympc*yrbys/&
           &(sqrt(pi)*lmfp*hubp(z)*(1.0_prec+z)) ! dimensionless 
-     gammapi = (gpi_pop2*source_pop2 + gpi_pop3*source_pop3)*fesc*lmfp*&
+     gammapi = (gpi_pop2*source*1.0e-10_prec)*fesc*lmfp*&
           &(1.0_prec+z)**3*(cmbympc**2)/yrbys ! s^-1
 
+     print *, z, q, source, gammapi 
+     
      !-------------------------
 
      mminc = getjmc(z)
