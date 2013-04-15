@@ -1,0 +1,69 @@
+#
+# Table of yields : ejected mass of each element vs initial mass
+# --------------------------------------------------------------
+#
+#
+#  Ref : Woosley and Weaver, ApJS, 101, 181 (1995)
+#
+#  Table 3             : mass of the remnant
+#  Table 12 (models B) : Z = 0.01 Zsun
+#
+#  NB 1 : initial mass corrected by a factor 2./1.9891
+#  NB 2 : yields for total Z = initial mass - remnant mass - yields(H,He)
+#  NB 3 : remnant type NS if Mrem < 6 Msun
+#  NB 4 : Ekin = KE in table 3 and vinf is fixed to   500 km/s
+#
+# Number of values (max = 100 initial masses) :
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+10
+#
+# Number of chemical elements (max = 20 elements) :
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+12
+#
+# Yields : unit = solar mass
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+# First line     :   skip first 15 characters 
+#                    then 8 characters per mass (Initial mass of the star)
+# 
+# Second line    :   skip first 15 characters
+#                    then 8 characters per mass (Mass of the leftover remnant)
+#
+# Next lines     :   7 first characters = name of the element
+#                    8 next characters  = mass of the element (convention 0 for Z)
+#                    then 8 characters per yields
+#
+# IMPORTANT 1 : all numbers have to be aligned (right-justification)
+#
+# IMPORTANT 2 : no values (or yields = 0) : skip the column
+#
+#col   8       16      24      32      40      48      56      64      72      80      88      96      104
+##########################################################################################################
+#
+#
+#Old Mass           12.     13.     15.     18.     20.     22.     25.     30.     35.     40.
+Mass              12.07   13.07   15.08   18.10   20.11   22.12   25.14   30.16   35.19   40.22
+Mrem               1.40    1.44    1.56    1.58    1.98    2.04    1.87    2.21    2.42    4.42   
+Rem                  NS      NS      NS      NS      NS      NS      NS      NS      BH      BH
+Ekin(erg)       1.2E51  1.3E51  1.2E51  1.2E51  1.1E51  1.3E51  1.2E51  1.3E51  1.2E51  1.2E51
+vinf(km/s)        500.    500.    500.    500.    500.    500.    500.    500.    500.    500.
+D2           2.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.
+He4          4.    3.90    4.28    5.09    6.25    6.62    7.50    8.76    10.3    12.0    13.9
+C12         12. 9.01E-2 1.09E-1 1.49E-1 1.94E-1 2.08E-1 2.48E-1 2.79E-1 3.15E-1 3.53E-1 3.89E-1
+N14         14. 3.33E-4 4.36E-4 5.43E-4 6.24E-4 6.81E-4 7.77E-4 9.29E-4 1.15E-3 1.42E-3 1.68E-3
+O16         16. 1.42E-1 2.10E-1 4.23E-1 9.52E-1    1.62    1.94    2.83    4.45    5.65    6.19
+Mg24        24. 5.80E-3 1.06E-2 2.13E-2 3.59E-2 1.67E-2 5.74E-2 3.96E-2 2.75E-1 3.31E-1 2.83E-1
+Si28        28. 3.13E-2 4.15E-2 7.33E-2 1.01E-1 2.44E-1 3.11E-1 3.85E-1 3.08E-1 2.68E-1 2.73E-2
+S32         32. 1.40E-2 2.18E-2 3.46E-2 5.61E-2 1.48E-1 1.48E-1 2.05E-1 9.82E-2 1.11E-1 4.31E-4
+Ca40        40. 2.62E-3 4.90E-3 6.47E-3 9.95E-3 1.84E-2 1.93E-2 1.94E-2 1.77E-2 2.02E-2 1.19E-5
+Fe56        56.   0.152   0.191   0.171   0.135   0.073   0.099   0.187   0.176    0.18     0.0
+Zn64        64. 1.16E-4 1.11E-4 1.28E-4 6.59E-5 2.99E-6 2.64E-5 8.15E-5 1.77E-4 4.44E-5 7.65E-7
+Z            0.    0.47    0.64    0.94     1.7    2.44    2.91    4.11    5.04    4.98    3.54
+ 
+# Old Fe56  56. 5.08E-5 5.41E-5 6.32E-5 7.86E-5 8.38E-5 8.93E-5 1.05E-4 1.07E-4 1.21E-4 1.32E-4
+# Old Z      0.   0.281   0.388   0.687   1.314   2.239   2.667   3.720   4.416   4.034   2.957
+ 
+

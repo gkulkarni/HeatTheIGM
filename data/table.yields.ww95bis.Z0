@@ -1,0 +1,69 @@
+#
+# Table of yields : ejected mass of each element vs initial mass
+# --------------------------------------------------------------
+#
+#
+#  Ref : Woosley and Weaver, ApJS, 101, 181 (1995)  bis
+#
+#  Table 3             : mass of the remnant
+#  Table 16 (models B) : Z = 0 MAIS  yields sont pris dans le modele b
+#   pour en voir l impact (C,O, Fe etc...)
+#
+#  NB 1 : initial mass corrected by a factor 2./1.9891
+#  NB 2 : yields for total Z = initial mass - remnant mass - yields(H,He)
+#  NB 3 : remnant type NS if Mrem < 6 Msun
+#  NB 4 : Ekin = KE in table 3 and vinf is fixed to 500 km/s
+#  
+# Number of values (max = 100 initial masses) :
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+10
+#
+# Number of chemical elements (max = 20 elements) :
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+12
+#
+# Yields : unit = solar mass
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+# First line     :   skip first 15 characters 
+#                    then 8 characters per mass (Initial mass of the star)
+# 
+# Second line    :   skip first 15 characters
+#                    then 8 characters per mass (Mass of the leftover remnant)
+#
+# Next lines     :   7 first characters = name of the element
+#                    8 next characters  = mass of the element (convention 0 for Z)
+#                    then 8 characters per yields
+#
+# IMPORTANT 1 : all numbers have to be aligned (right-justification)
+#
+# IMPORTANT 2 : no values (or yields = 0) : skip the column
+#
+#col   8       16      24      32      40      48      56      64      72      80      88      96      104
+##########################################################################################################
+#
+#
+# Old Mass          12.     13.     15.     18.     20.     22.     25.     30.     35.     40.   
+Mass              12.07   13.07   15.08   18.10   20.11   22.12   25.14   30.16   35.19   40.22
+Mrem               1.35    1.28    1.53    3.40    4.12    1.49    1.90    1.54    7.62    12.2
+Rem                  NS      NS      NS      NS      NS      NS      BH      BH      BH      BH
+Ekin(erg)       1.3E51  1.3E51  1.3E51  1.2E51  1.2E51  1.3E51  1.2E51  1.2E51  1.3E51  1.3E51
+vinf(km/s)        500.    500.    500.    500.    500.    500.    500.    500.    500.    500.
+D2           2.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.
+He4          4.    4.08    4.42     4.9     5.7    6.32     7.1    7.82    9.11   10.60   12.00
+C12         12. 4.30E-2 6.84e-2   0.145   0.110 8.98E-2   0.277   0.423   0.350    0.35    0.28
+N14         14. 2.18e-6 2.37e-6 3.63e-6 1.93e-6 1.68e-6 1.10e-5 2.08e-4 3.53e-3  8.6e-6  3.2e-6         
+O16         16. 6.67E-2   0.137   0.400 3.00E-2 9.21e-3    1.85    2.33    4.35    1.92   0.578
+Mg24        24. 3.84e-3 1.49e-2 3.34e-2 4.76e-6 2.00e-6 9.31e-2 9.25e-2   0.245 4.73E-2 2.84e-4
+Si28        28. 2.49E-2 3.37E-2 6.81E-2 2.50E-9 1.58E-9   0.165   0.231   0.123 1.69e-3 2.55e-8
+S32         32. 8.52E-3 1.34E-2 2.58E-2 8.5E-12 1.1E-11   0.109    0.10   0.045 2.55E-6 1.4E-13
+Ca40        40. 1.42E-3 3.01E-3 4.19E-3 1.5E-16 1.7E-16 2.37E-2   0.017   0.008 2.6E-11 1.3e-15 
+Fe56        56.   0.081   0.191   0.160     0.0    0.00   0.167   0.288   0.324     0.0    0.00
+Zn64        64. 3.97e-5 4.48e-5  6.42e-5    0.0    0.00 6.94e-5 9.62e-5 4.67e-4     0.0    0.00
+Z            0.    0.25    0.54    0.96    0.15    0.11    3.33   3.700   5.144     2.3   0.858 
+
+# Old Z      0.   0.210   0.488    0.90    0.14    0.10   3.137   3.388    5.144     2.3   0.858
+#le 5 mars 2004. Il y a un petit pb dans Z entre les 2 facons de calculer pour les grandes masses
+

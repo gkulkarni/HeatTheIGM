@@ -1,0 +1,79 @@
+#
+# Table of yields : ejected mass of each element vs initial mass
+# --------------------------------------------------------------
+#
+#
+#  Ref : Heger and Woosley, ApJ, 567, 532 (2002)
+#
+#  Table 3 : the initial mass is computed using Mini = 20 + (24/13) MHecore
+#            the line Z is initial mass of He core - yields (He)
+#
+#  NB 1 : Ekin = first explosion = read in figure 1 
+#         vinf = (2 Ekin / MHecore)^.5
+#
+#  NB 2 : for Mini>260 Msun : remnant = BH with M=Mini and no nucleosynthesis
+#
+# Number of values (max = 100 initial masses) :
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+15
+#
+# Number of chemical elements (max = 20 elements) :
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+12
+#
+# Yields : unit = solar mass
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+# First line     :   skip first 15 characters 
+#                    then 8 characters per mass (Initial mass of the star)
+# 
+# Second line    :   skip first 15 characters
+#                    then 8 characters per mass (Mass of the leftover remnant)
+#
+# Next lines     :   7 first characters = name of the element
+#                    8 next characters  = mass of the element (convention 0 for Z)
+#                    then 8 characters per yields
+#
+# IMPORTANT 1 : all numbers have to be aligned (right-justification)
+#
+# IMPORTANT 2 : no values (or yields = 0) : skip the column
+#
+#col   8       16      24      32      40      48      56      64      72      80      88      96      104     112     120     128     136
+##########################################################################################################################################
+#
+#
+# He core           65.     70.     75.     80.     85.     90.     95.    100.    105.    110.    115.    120.    125.    130.  133.31
+Mass               140.   149.2   158.5   167.7   176.9   186.2   195.4   204.6   213.8   223.1   232.3   241.5   250.8    260.    266.
+Mrem                 0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.    266.
+Rem                                                                                                                                  BH
+Ekin (erg)       5.0E51  9.2E51  1.3E52  1.8E52  2.7E52  2.9E52  3.6E52  4.3E52  4.9E52  5.7E52  6.4E52  7.2E52  8.0E52  8.8E52      0.
+vinf (km/s)       2800.   3600.    4200.  4800.   5700.   5800.   6200.   6600.   6900.   7200.   7500.   7800.   8000.   8300.      0.
+D2           2.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.
+#He4         4.    1.96    1.55    1.44    1.46    1.44    1.41    1.42    1.47    1.53    1.66    1.77    2.00    2.38    2.82      0.
+He4          4.   20.71   21.35   22.31   23.38   24.41   25.46   26.52   27.62   28.73   29.93   31.09   32.37   33.83   35.32      0.
+C12         12.    6.89    4.54    4.32    4.33    4.28    4.21    4.13    4.01    3.85    3.74    3.73    3.71    3.61    3.49      0.
+N14         14. 7.84E-5 5.04E-5 4.31E-5 4.15E-5 3.78E-5 3.46E-5 3.23E-5 3.10E-5 2.92E-5 2.75E-5 2.42E-5 1.95E-5 1.41E-5 1.10E-5      0.
+O16         16.    49.2    45.8    44.4    46.8    46.6    45.9    45.2    43.9    42.7    41.1    39.8    38.1    35.9    33.4      0.
+Mg24        24.    1.53    3.02    3.49    3.67    3.97    4.24    4.38    4.41    4.40    4.31    4.50    4.55    4.42    4.38      0.
+Si28        28. 3.15E-1    7.97    12.2    13.6    16.5    19.2    21.4    23.1    24.5    25.2    25.7    25.7    25.1    24.2      0.
+S32         32. 9.50E-4    2.43    4.12    4.70    6.08    7.58    8.85    9.97    10.8    11.4    11.8    12.0    11.8    11.4      0.
+Ca40        40. 1.46E-8 1.88E-1 3.17E-1 3.70E-1 5.29E-1 7.61E-1 9.93E-1    1.22    1.40    1.54    1.63    1.69    1.71    1.67      0.
+Fe56        56. 1.3E-13 1.17E-2 1.02E-1 1.29E-1 4.07E-1    1.31    2.98    5.82    9.55    14.2    19.0    24.6    31.7    39.6      0.
+Zn64        64. 1.4E-15 1.7E-11 1.9E-11 2.3E-11 2.6E-11 2.7E-11 2.9E-11 4.22E-9 8.97E-6 5.11E-5 1.21E-4 2.29E-4 3.93E-4 6.00E-4      0.
+Z            0.   63.04   68.45   73.56   78.54   83.56   88.59   93.58   98.58  103.47  108.34  113.23  118.00  122.62  127.18      0.
+
+
+
+# Model 63 Msun :    1st expl 12.8Msun 1.2E51 erg 3070 km/s  2nd expl 2.7Msun 1.3E50 erg 2200 km/s  3rd expl 2.2Msun 5.1E50 erg 4830 km/s
+#                    remnant = BH (1.8 Msun ?)      
+#
+# Model 133.3 Msun : 1st expl 57.0Msun 93.5E51 erg12840 km/s 
+#
+# Model 133.31 Msun : collapse to BH without any ejection
+
+
+
+
+

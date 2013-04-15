@@ -1,0 +1,67 @@
+#
+# Table of yields : ejected mass of each element vs initial mass
+# --------------------------------------------------------------
+#
+#
+# Ref : van den Hoek and Groenewegen AASS, 123, 305 1997
+# 
+#       Table 17 : Z = 0.02
+#22 Déc 2010 nouvelle façon de calculer : avec les yields frais seulement
+#
+# NB1 : Z computed with column Ytot
+#
+# Number of values (max = 100 initial masses) :
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+12
+#
+# Number of chemical elements (max = 20 elements) :
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+10
+#
+# Yields : unit = solar mass 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+# First line     :   skip first 15 characters 
+#                    then 8 characters per mass (Initial mass of the star)
+# 
+# Second line    :   skip first 15 characters
+#                    then 8 characters per mass (Mass of the leftover remnant)
+#
+# Next lines     :   7 first characters = name of the element
+#                    8 next characters  = mass of the element (convention 0 for Z)
+#                    then 8 characters per yields
+#
+# IMPORTANT 1 : all numbers have to be aligned (right-justification)
+#
+# IMPORTANT 2 : no values (or yields = 0) : skip the column
+#
+#col   8       16      24      32      40      48      56      64      72      80      88      96      104     112
+##################################################################################################################
+#
+#
+#
+Masse              0.9     1.0     1.3     1.5     1.7     2.0     2.5     3.0     4.0     5.0     7.0     8.0
+Mrem               0.57    0.58    0.59    0.59    0.59    0.60    0.60    0.62    0.79    0.92    1.07    1.15
+Rem                  WD      WD      WD      WD      WD      WD      WD      WD      WD      WD      WD      WD
+Ekin (erg)           0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.
+vinf (km/s)          0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.
+D2           2.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.
+Li7          7.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.      0.
+He4          4. .09E-01 .19E-01 .33E-01 .24E-01 .24E-01 .40E-01 .69E-01 .99E-01 .13E-00 .16E-00 .25E-00 .31E-00
+C12         12. .00E-04 .00E-02 .00E-02 .00E-02 .12E-02 .22E-02 .47E-02 .10E-01 .15E-01 .18E-01 .00E-04 .00E-02
+N14         14. .40E-03 .80E-03 .12E-02 .15E-02 .17E-02 .25E-02 .39E-02 .52E-02 .73E-02 .36E-01 .68E-01 .86E-01
+O16         16. .00E-03 .98E-03 .24E-02 .55E-03 .30E-03 .16E-03 .00E-03 .00E-03 .00E-03 .00E-02 .00E-03 .00E-03
+Mg24        24. .69E-07 .69E-07 .11E-06 .15E-06 .18E-06 .22E-06 .36E-07 .00E-03 .00E-03 .00E-03 .00E-03 .00E-03
+Mg25        25. .69E-08 .69E-08 .85E-08 .14E-07 .23E-07 .21E-07 .27E-05 .25E-04 .11E-03 .25E-03 .32E-03 .32E-03
+Mg26        26. .12E-07 .12E-07 .23E-07 .27E-07 .28E-07 .36E-07 .20E-05 .11E-04 .67E-04 .25E-03 .37E-03 .37E-03
+Z            0. .66E-02 .12E-01 .22E-01 .23E-01 .27E-01 .36E-01 .52E-01 .68E-01 .89E-01 .11E+00 .17E+00 .20E+00
+
+
+
+
+
+
+
+

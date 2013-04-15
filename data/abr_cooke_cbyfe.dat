@@ -1,0 +1,12 @@
+# Data from Cooke et al. 2011 (MNRAS 417 1534), retrieved from Figure
+# 11 of Becker et al. 2011 (ApJ 744 91) using GraphClick.  See caption
+# in Becker for details if something is unclear.
+
+# z  [C/Fe]  lower-limit  upper-limit 
+3.647	0.417	0.219	0.636
+3.108	-0.104	-0.360	0.177
+3.002	0.133	0.006	0.286
+2.547	0.043	0.009	0.109
+2.485	0.203	0.137	0.309
+1.987	0.144	0.120	0.186
+

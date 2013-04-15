@@ -1,0 +1,13 @@
+# Data from Becker et al. 2012 (ApJ 744 91).  IMPORTANT: (1) Errors
+# are plus-minus, so a b means upper bound is a+b and lower bound is
+# a-b, and (2) while calculting [C/O], they have used Asplund data for
+# solar abundances, not Anderes and Grevasse.
+
+# z   [C/O]  Error 
+5.3380	−0.42  0.07 
+5.7911	−0.15  0.04 
+5.8765	−0.17  0.09 
+6.0115	−0.25  0.06 
+6.1312	−0.65  0.27 
+6.1988	−0.34  0.17 
+6.2575	−0.08  0.26

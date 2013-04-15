@@ -1,0 +1,14 @@
+#!/usr/bin/python 
+
+import sys 
+from sets import Set 
+filename = sys.argv[1] 
+data = open(filename,"r")
+i = 0 
+for line in data: 
+    ln = line.strip()
+    if not ln.startswith("#"):
+        i = i+1 
+        if (i not in Set([1,2,5])):
+            print ln.strip()
+

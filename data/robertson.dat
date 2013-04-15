@@ -1,0 +1,16 @@
+# These data are taken from Robertson et al. 2013 (arXiv: 1301.1228).
+
+# x: z 
+# y: 1-Q_HII 
+# dy-: lower error (meaningless if dy+=0; data point is upper limit in that case)
+# dy+: upper error (meaningless if dy-=0; data point is lower limit in that case) 
+
+  # x	y	dy-	dy+
+5.497	0.280	-0.088	0.000
+6.305	0.192	0.000	0.086
+5.995	0.557	-0.092	0.000
+7.103	0.190	0.000	0.090
+6.346	0.555	-0.090	0.000
+6.545	0.463	-0.089	0.000
+6.652	0.554	-0.089	0.000
+#6.948	0.538	-0.147	0.145

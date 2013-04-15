@@ -1,0 +1,5 @@
+This folder contains my reionization code.  It was copied from
+reion-eq on April 15, 2013.  The purpose of this code is to study
+thermal history of the IGM.  Therefore, most of the star formation
+related code in reion-eq is deleted from here.
+

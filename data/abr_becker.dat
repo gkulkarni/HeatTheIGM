@@ -1,0 +1,17 @@
+# Data from Becker et al. 2012 (ApJ 744 91).  First two data points
+# are upper limits.  E IMPORTANT: (1) Errors are plus-minus, so a b
+# means upper bound is a+b and lower bound is a-b, and (2) while
+# calculting [Si/O], they have used Asplund data for solar abundances,
+# not Anderes and Grevasse.
+
+# z     [Si/O]   Error 
+4.7393   0.33   0.00 
+5.0817   0.27   0.00 
+5.3380  -0.14   0.06 
+5.7911   0.00   0.05 
+5.8765  -0.08   0.07 
+6.0115   0.04   0.04 
+6.1312  -0.32   0.24 
+6.1988  -0.20   0.14 
+6.2575  -0.02   0.17 
+		

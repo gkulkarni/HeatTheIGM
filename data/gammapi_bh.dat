@@ -1,0 +1,11 @@
+# Data from Bolton and Haehnelt (2007).
+# The last value is upper limit.
+
+# z  gamma_pi  positive-error  negative-error 
+2  1.29	 0.80  0.46
+3  0.86	 0.34  0.26 
+4  0.97	 0.48  0.33 
+5  0.52	 0.35  0.21 
+6  0.19  0.00  0.00
+
+

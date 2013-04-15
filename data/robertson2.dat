@@ -1,0 +1,17 @@
+# These data are taken from Robertson et al. 2013 (arXiv: 1301.1228).
+
+# x: z 
+# y: 1-Q_HII 
+# dy-: lower error (meaningless if dy+=0; data point is upper limit in that case)
+# dy+: upper error (meaningless if dy-=0; data point is lower limit in that case) 
+# ci: color index for plotting 
+
+  # x	y	dy-	dy+    ci 
+5.497	0.199	-0.088	0.000  3
+6.306	0.103	0.000	0.086  2
+5.996	0.504	-0.092	0.000  3
+7.104	0.101	0.000	0.090  2
+6.347	0.501	-0.090	0.000  4
+6.546	0.401	-0.089	0.000  5
+6.653	0.501	-0.089	0.000  8
+#6.950	0.483	-0.147	0.145
