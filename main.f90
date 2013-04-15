@@ -198,53 +198,6 @@ PROGRAM REION
 
   metarr(1) = 0.0_prec 
 
-  open(unit=31, file='abundances.out', status='unknown', action='write')
-  open(unit=32, file='masses.out', status='unknown', action='write')
-  open(unit=33, file='rates.out', status='unknown', action='write')
-  open(unit=34, file='sfr.out', status='unknown', action='write')
-  open(unit=35, file='fracs.out', status='unknown', action='write')
-  open(unit=36, file='ejrates.out', status='unknown', action='write')
-  open(unit=37, file='mdf.out', status='unknown', action='write')
-  open(unit=38, file='reion.out', status='unknown', action='write')
-  open(unit=39, file='halos.out', status='unknown', action='write') 
-  open(unit=40, file='halos_stars.out', status='unknown', action='write') 
-  open(unit=41, file='halos_gas.out', status='unknown', action='write') 
-  open(unit=42, file='halos_metals.out', status='unknown', action='write') 
-  open(unit=43, file='halos_c.out', status='unknown', action='write') 
-  open(unit=44, file='halos_fe.out', status='unknown', action='write') 
-  open(unit=45, file='halos_o.out', status='unknown', action='write') 
-  open(unit=46, file='halos_zism.out', status='unknown', action='write') 
-  open(unit=47, file='mmin.out', status='unknown', action='write')
-  open(unit=48, file='strpop.out', status='unknown', action='write')
-  open(unit=49, file='halos_aux.out', status='unknown', action='write') 
-  open(unit=50, file='avghalos.out', status='unknown', action='write') 
-  open(unit=51, file='avghalos_stars.out', status='unknown', action='write') 
-  open(unit=52, file='avghalos_gas.out', status='unknown', action='write') 
-  open(unit=53, file='avghalos_metals.out', status='unknown', action='write') 
-  open(unit=54, file='avghalos_c.out', status='unknown', action='write') 
-  open(unit=55, file='avghalos_fe.out', status='unknown', action='write') 
-  open(unit=56, file='avghalos_o.out', status='unknown', action='write') 
-  open(unit=57, file='avghalos_zism.out', status='unknown', action='write') 
-  open(unit=58, file='params.out', status='unknown', action='write')
-  open(unit=59, file='halos_N.out', status='unknown', action='write') 
-  open(unit=60, file='halos_Si.out', status='unknown', action='write') 
-  open(unit=61, file='halos_Zn.out', status='unknown', action='write') 
-  open(unit=62, file='avghalos_N.out', status='unknown', action='write') 
-  open(unit=63, file='avghalos_Si.out', status='unknown', action='write') 
-  open(unit=64, file='avghalos_Zn.out', status='unknown', action='write') 
-  open(unit=65, file='nofmc.out', status='unknown', action='write') 
-  open(unit=66, file='nofmh.out', status='unknown', action='write') 
-  open(unit=67, file='halos_Mg.out', status='unknown', action='write') 
-  open(unit=68, file='avghalos_Mg.out', status='unknown', action='write')
-  open(unit=73, file='l1500.out', status='unknown', action='write') 
-  open(unit=74, file='halos_coolgas.out', status='unknown', action='write') 
-  open(unit=75, file='avghalos_coolgas.out', status='unknown', action='write') 
-
-  open(unit=69, file='aux_fe.out', status='unknown', action='write') 
-  open(unit=70, file='aux_o.out', status='unknown', action='write') 
-  open(unit=71, file='aux_si.out', status='unknown', action='write') 
-  open(unit=72, file='aux_zn.out', status='unknown', action='write') 
-
   !------------------------------
 
 !!$  mhalo_high = 1.0e3_prec ! 10^10 M_solar 
@@ -1153,91 +1106,7 @@ PROGRAM REION
         end if
      end do
 
-     write (39,'(F4.1,270E11.3E2)') z, m_halosh 
-     write (40,'(F4.1,270E11.3E2)') z, mstar_halosh 
-     write (41,'(F4.1,270E11.3E2)') z, mgas_halosh 
-     write (42,'(F4.1,270E11.3E2)') z, mmetal_halosh 
-     write (43,'(F4.1,270E11.3E2)') z, mC_halosh 
-     write (44,'(F4.1,270E11.3E2)') z, mFe_halosh 
-     write (45,'(F4.1,270E11.3E2)') z, mO_halosh 
-     write (59,'(F4.1,270E11.3E2)') z, mN_halosh 
-     write (60,'(F4.1,270E11.3E2)') z, mSi_halosh 
-     write (61,'(F4.1,270E11.3E2)') z, mZn_halosh 
-     write (67,'(F4.1,270E11.3E2)') z, mMg_halosh 
-     write (46,'(F4.1,270E11.3E2)') z, ismz_halosh 
-     write (48,'(F4.1,270I3)') z, strpop_halosh
-     write (74,'(F4.1,270E11.3E2)') z, mcoolgas_halosh 
-
-     ! write (49,'(F4.1,270E11.3E2)') z, aux_halosh
-     write (49,'(F4.1,270E11.3E2)') z, mstardot_halosc
-
-     write (50,'(F4.1,270E11.3E2)') z, q*m_halosh + (1.0_prec-q)*m_halosc 
-     write (51,'(F4.1,270E11.3E2)') z, q*mstar_halosh + (1.0_prec-q)*mstar_halosc 
-     write (52,'(F4.1,270E11.3E2)') z, q*mgas_halosh + (1.0_prec-q)*mgas_halosc 
-     write (53,'(F4.1,270E11.3E2)') z, q*mmetal_halosh + (1.0_prec-q)*mmetal_halosc 
-     write (54,'(F4.1,270E11.3E2)') z, q*mC_halosh + (1.0_prec-q)*mC_halosc 
-     write (55,'(F4.1,270E11.3E2)') z, q*mFe_halosh + (1.0_prec-q)*mFe_halosc 
-     write (56,'(F4.1,270E11.3E2)') z, q*mO_halosh + (1.0_prec-q)*mO_halosc 
-     write (62,'(F4.1,270E11.3E2)') z, q*mN_halosh + (1.0_prec-q)*mN_halosc 
-     write (63,'(F4.1,270E11.3E2)') z, q*mSi_halosh + (1.0_prec-q)*mSi_halosc 
-     write (64,'(F4.1,270E11.3E2)') z, q*mZn_halosh + (1.0_prec-q)*mZn_halosc 
-     write (68,'(F4.1,270E11.3E2)') z, q*mMg_halosh + (1.0_prec-q)*mMg_halosc 
-     write (57,'(F4.1,270E11.3E2)') z, q*ismz_halosh + (1.0_prec-q)*ismz_halosc 
-     write (75,'(F4.1,270E11.3E2)') z, q*mcoolgas_halosh + (1.0_prec-q)*mcoolgas_halosc 
-
-     write (65,'(F4.1,270E11.3E2)') z, nofmc
-     write (66,'(F4.1,270E11.3E2)') z, nofmh
-
-     write (73, '(F4.1,I5)') z, lim_haloindex 
-
   END DO
-
-  close(31)
-  close(32)
-  close(33)
-  close(34)
-  close(35)
-  close(36)
-  close(37)
-  close(38)
-  close(39)
-  close(40)
-  close(41)
-  close(42)
-  close(43)
-  close(44)
-  close(45)
-  close(46)
-  close(47)
-  close(48)
-  close(49)
-  close(50)
-  close(51)
-  close(52)
-  close(53)
-  close(54)
-  close(55)
-  close(56)
-  close(57)
-  close(58)
-  close(59)
-  close(60)
-  close(61)
-  close(62)
-  close(63)
-  close(64)
-  close(65)
-  close(66)
-  close(67)
-  close(68)
-  close(73)
-  close(74)  
-  close(75)
-
-  close(69)
-  close(70)
-  close(71)
-  close(72)
 
   TAU = TAU-FINAL_REDSHIFT*TAU1 
   WRITE(0,*) 'TAU=', TAU 
