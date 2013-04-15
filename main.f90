@@ -14,7 +14,7 @@ PROGRAM REION
        &ACCRATE, ejrate, sfr_rollinde_pop3, sfr_rollinde_pop2, &
        &interpolate2, getsfr2, getsfr3, getjmc, getjmh, haloyield_nonira, &
        &rtnewt, newtondelta, newtonfm, igmfposto, ejfrac_nonira, outfrac_nonira, &
-       &haloyield_species_nonira, counter, ngammafrac, haloyield_species
+       &haloyield_species_nonira, counter, ngammafrac, haloyield_species, sfr_hs 
   IMPLICIT NONE 
 
   REAL(KIND=PREC) :: A, B, BOUND, C, DFM, DGRF, DLT, DLTHI, DLTLO, &
@@ -431,12 +431,17 @@ PROGRAM REION
      !-------------------------
 
      ! Calculate rate of ionizing photons (nphdot). 
-     source = sm 
+     ! source = sm 
+     source = sfr_hs(z) ! M_solar yr^-1 Mpc^-3
+     print *, source 
+
      source_pop2 = sm_pop2
      source_pop3 = sm_pop3
-     sfrarr(countr-1) = source*1.0e10_prec ! M_solar yr^-1 Mpc^-3
+
+     sfrarr(countr-1) = source ! M_solar yr^-1 Mpc^-3
      sfrarr_pop2(countr-1) = source_pop2*1.0e10_prec ! M_solar yr^-1 Mpc^-3
      sfrarr_pop3(countr-1) = source_pop3*1.0e10_prec ! M_solar yr^-1 Mpc^-3
+
      write (34, '(F4.1,4E11.3E2)') z, sfrarr(countr-1), sfrarr_pop2(countr-1), sfrarr_pop3(countr-1), limsfr 
      nphdot = fesc*(source_pop2*ngamma_pop2 + source_pop3*ngamma_pop3) ! yr^-1 Mpc^-3
 

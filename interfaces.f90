@@ -933,7 +933,18 @@ MODULE INTERFACES
        
      end function hallum
 
-  END INTERFACE
+     ! ---------------------- 
 
-END MODULE INTERFACES
+     function sfr_hs(z)
+
+       use constants 
+       implicit none 
+       real(kind=prec), intent(in) :: z ! redshift 
+       real(kind=prec) :: sfr_hs ! SFR (Msun yr^-1 Mpc^-3)
+
+     end function sfr_hs
+
+    END INTERFACE
+
+  END MODULE INTERFACES
 
