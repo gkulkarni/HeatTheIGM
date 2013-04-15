@@ -293,19 +293,6 @@ PROGRAM REION
   zlim = 10.0_prec 
   maglim = -18.0_prec 
 
-  write (58,*) 'initial_redshift=', initial_redshift 
-  write (58,*) 'final_redshift=', final_redshift 
-  write (58,*) 'dz=', dz 
-  write (58,*) 'fstar=', fstar
-  write (58,*) 'fstar_pop3=', fstar_pop3
-  write (58,*) 'fesc=', fesc 
-  write (58,*) 'pop2 imf:', minf, msup 
-  write (58,*) 'pop3 imf:', minf_pop3, msup_pop3
-  write (58,*) 'imf_slope', imf_slope
-  write (58,*) 'data_mmin=', data_mmin
-  write (58,*) 'data_mmax=', data_mmax 
-  write (58,*) 'stmass_uplimit=', stmass_uplimit 
-
   do 
      countr = countr + 1 
      z = z + dz 
@@ -395,7 +382,6 @@ PROGRAM REION
      sfrarr_pop2(countr-1) = source_pop2*1.0e10_prec ! M_solar yr^-1 Mpc^-3
      sfrarr_pop3(countr-1) = source_pop3*1.0e10_prec ! M_solar yr^-1 Mpc^-3
 
-     write (34, '(F4.1,4E11.3E2)') z, sfrarr(countr-1), sfrarr_pop2(countr-1), sfrarr_pop3(countr-1), limsfr 
      nphdot = fesc*(source_pop2*ngamma_pop2 + source_pop3*ngamma_pop3) ! yr^-1 Mpc^-3
 
      !-------------------------
@@ -579,12 +565,6 @@ PROGRAM REION
 
      !-------------------------
 
-     write (38,'(F4.1,14E11.3E2)') z, q, tau, gammapi, temph, tempc, &
-          &(q*temph+(1.0_prec-q)*tempc), x_ii, dnlldz, lmfp, r, igmdcrit, nphdot, &
-          &temphva, fv
-
-     !-----------------------------
-
      ! Evolve various metal species. 
 
      ofl = outflow(z) ! 10^10 M_solar yr^-1 Mpc^-3 
@@ -671,46 +651,8 @@ PROGRAM REION
 
      dtrans = log10(10.0**c_abundance + 0.3*10.0**o_abundance)
 
-     write (31, '(F4.1,5E11.3E2)') z, metarr(countr), fe_abundance, c_abundance, o_abundance, dtrans
-     write (32, '(F4.1,8E11.3E2)') z, fb_struct, m_igm, m_str, m_ism, m_c, m_o, m_fe, m_totz 
-     write (33, '(F4.1,3E11.3E2)') z, acc, ofl, ejc
-     write (35, '(F4.1,8E11.3E2)') z, xigm_fe, xigm_c, xigm_o, xigm_tot, xism_fe, xism_c, xism_o, xism_tot  
-     write (36, '(F4.1,4E11.3E2)') z, ejc, ejrate_fe, ejrate_o, ejrate_c 
-
-     !-----------------------------
-
-     ! Calculate the MDF.
-!!$     if (z == final_redshift) then 
-!!$        febyh = -6.0_prec
-!!$        dfebyh = 0.2_prec
-!!$        do 
-!!$           if (febyh > -2.0_prec) exit 
-!!$           call interpolate2(zfearr, febyharr, febyh, zfe)
-!!$
-!!$           psi = getsfr2(zfe)
-!!$           ! psi = sfr_rollinde_pop2(zfe) ! M_solar yr^-1 Mpc^-3
-!!$           totalmstar = psi*dz*dtdz(zfe) ! M_solar Mpc^-3
-!!$
-!!$           call interpolate2(tarr, zarr, zfe, tfe) ! yr
-!!$           call interpolate2(tarr, zarr, z, tnow) ! yr
-!!$           age_fe = (tnow-tfe)*1.0e-6_prec ! Myr
-!!$
-!!$           call interpolate2(stellar_mass, stellar_age, age_fe, mstar_fe) ! [mstar_fe] = M_solar
-!!$           if (mstar_fe > minf_pop3) then 
-!!$              write (0,*) 'Warning (MDF): mstar_fe > minf_pop3' 
-!!$           end if
-!!$
-!!$           write (37, *) febyh, nstar(mstar_fe, totalmstar)
-!!$
-!!$           febyh = febyh + dfebyh 
-!!$        end do
-!!$     end if
-
-     !-----------------------------
-
      mminc = getjmc(z)
      mminh = getjmh(z)
-     write (47, '(F4.1,3E11.3E2)') z, mminc, mminh, q*mminh+(1.0_prec-q)*mminc
 
      ! The do-loop below evolves ``cool'' haloes i. e. haloes in H I regions. 
 
