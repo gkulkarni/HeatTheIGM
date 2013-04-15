@@ -1,9 +1,8 @@
 
 PROGRAM REION 
 
-  ! File: main.f90
-  ! Cre: 2010-04-07
-  ! Mod: $Date: 2012/10/23 08:10:11 $; $Revision: 1.45 $ 
+  !  Main file of the thermal history code.  This file belongs to
+  !  `thermal', NOT to `reion-eq'.
 
   USE CONSTANTS 
   USE STORAGE 
