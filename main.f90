@@ -171,7 +171,7 @@ PROGRAM REION
 
      ! Calculate rate of ionizing photons (nphdot). 
      source = sfr_hs(z) ! M_solar yr^-1 Mpc^-3
-     nphdot = fesc*source*ngamma ! yr^-1 Mpc^-3
+     nphdot = fesc*source*ngamma*1.0e-10 ! yr^-1 Mpc^-3
 
      !-------------------------
 
@@ -332,8 +332,8 @@ PROGRAM REION
           &(sqrt(pi)*lmfp*hubp(z)*(1.0_prec+z)) ! dimensionless 
      gammapi = (gpi_pop2*source*1.0e-10_prec)*fesc*lmfp*&
           &(1.0_prec+z)**3*(cmbympc**2)/yrbys ! s^-1
-
-     print *, z, q, source, gammapi
+     
+     write (*,'(F4.1,4E11.3E2)'), z, q, source, gammapi, nphdot 
      
      !-------------------------
 
