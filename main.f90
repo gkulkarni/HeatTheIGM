@@ -46,15 +46,8 @@ PROGRAM REION
        &sdt, sdl, HaloVirialTemp, GasCoolingRate, eta, p, hb, fb, ft,&
        &mcooldot, halo_lum, zlim, maglim, limsfr  
 
-  real(kind=prec) :: m_igm, m_ism, m_str, xigm_fe, xigm_c, xigm_o, &
-       &xism_fe, xism_c, xism_o, dm_ism, dm_igm, dm_str, &
-       &xism_tot, xigm_tot, ejrate_tot, m_totz, xigm_n, xigm_mg, xigm_si, &
-       &xigm_zn, xism_n, xism_si, xism_mg, xism_zn
-
-  REAL(KIND=PREC) :: MAGFOO, ZFOO, NFOO1, NFOO2, MSTAR, MIGM, MISM 
-
   INTEGER :: I, J, IER, INF, LAST, NEVAL, NUMBER_OF_LINES, NCALC, &
-       &comnum, n_halocalc, glc, yfoo, lim_haloindex 
+       &comnum
 
   CHARACTER(100) :: ZLUMARG, RGNOVDARG, FESCARG, RGNSIZEARG, yfooarg 
 
@@ -73,14 +66,7 @@ PROGRAM REION
   RGNSIZE = 7.746 
   ZLUM = 6.5 
 
-  CALL GET_COMMAND_ARGUMENT(1, RGNOVDARG) 
-  CALL GET_COMMAND_ARGUMENT(2, RGNSIZEARG) 
-  CALL GET_COMMAND_ARGUMENT(3, ZLUMARG)
-  CALL GET_COMMAND_ARGUMENT(4, FESCARG)
-
-  READ(RGNOVDARG, '(F10.5)') RGNOVD
-  READ(RGNSIZEARG, '(F10.5)') RGNSIZE
-  READ(ZLUMARG, '(F10.5)') ZLUM
+  CALL GET_COMMAND_ARGUMENT(1, FESCARG)
   READ(FESCARG, '(F10.5)') FESC
 
   ! ----------------------------------------
@@ -182,11 +168,6 @@ PROGRAM REION
      countr = countr + 1 
      z = z + dz 
      if (z < final_redshift) exit 
-
-     smc = 0.0_prec; smc_pop3 = 0.0_prec; smc_pop2 = 0.0_prec  
-     smh = 0.0_prec; smh_pop3 = 0.0_prec; smh_pop2 = 0.0_prec 
-     limsfr = 0.0_prec 
-     lim_haloindex = 0 
 
      ! Calculate rate of ionizing photons (nphdot). 
      source = sfr_hs(z) ! M_solar yr^-1 Mpc^-3
@@ -352,7 +333,7 @@ PROGRAM REION
      gammapi = (gpi_pop2*source*1.0e-10_prec)*fesc*lmfp*&
           &(1.0_prec+z)**3*(cmbympc**2)/yrbys ! s^-1
 
-     print *, z, q, source, gammapi 
+     print *, z, q, source, gammapi
      
      !-------------------------
 
@@ -402,35 +383,6 @@ CONTAINS
     TAUINT = NE*SPEED_OF_LIGHT*THOMSCROSS&
          &*(1.0_PREC+Z)**3/ZDOT ! dimensionless 
   END FUNCTION TAUINT
-
-  function nstar(mu, mstar)
-
-    implicit none 
-    real(kind=prec), intent(in) :: mu, mstar
-    real(kind=prec) :: nstar
-
-    real(kind=prec) :: norm, ml
-
-    ml = 0.1_prec ! M_solar
-    norm = mstar*(1.0_prec-imf_slope)/(msup**(1.0_prec-imf_slope)-minf**(1.0_prec-imf_slope))
-
-    nstar = -(norm/imf_slope)*(mu**(-imf_slope)-ml**(-imf_slope)) 
-
-  end function nstar
-
-  function MassAccretionRate(z, HaloCurrentMass) 
-
-    real(kind=prec), intent(in) :: z, HaloCurrentMass 
-    real(kind=prec) :: MassAccretionRate 
-
-    ! Fakhouri et al. 2010, MNRAS 406, 2267-2278; Eqn. 2.
-    MassAccretionRate = 46.1_prec*((HaloCurrentMass/1.0e12_prec)**1.1_prec)*&
-         &(1.0_prec + 1.11_prec*z)*&
-         &sqrt(omega_nr*(1.0_prec+z)**3 + omega_lambda) ! M_solar yr^-1
-
-    MassAccretionRate = MassAccretionRate * 1.0e-10_prec ! 10^10 M_solar yr^-1
-
-  end function MassAccretionRate
 
   FUNCTION timedyn(rs)
 
