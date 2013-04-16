@@ -1,7 +1,7 @@
 *~
 scratch
-reion
-*.o 
+thermal
 *.mod
 *.chk
 *.DS_Store
+*o
