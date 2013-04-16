@@ -1,1 +1,7 @@
 *~
+scratch
+reion
+*.o 
+*.mod
+*.chk
+*.DS_Store
