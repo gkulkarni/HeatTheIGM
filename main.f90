@@ -93,6 +93,7 @@ PROGRAM REION
   allocate(metarr(ncalc)); allocate(febyharr(ncalc)); allocate(zfearr(ncalc))
   allocate(sfrarr_pop2(ncalc)); allocate(sfrarr_pop3(ncalc)) 
   allocate(nuintegralarr_pop2(ncalc)); allocate(nuintegralarr_pop3(ncalc)) 
+  allocate(optical_depth_component(ncalc)) 
 
   JMHARR = 0.0_PREC; FFARR = 0.0_PREC; SFRARR = 0.0_PREC; zfearr = 0.0_prec
   metarr = 0.0_prec; febyharr = 0.0_prec
@@ -101,6 +102,8 @@ PROGRAM REION
   COUNTR = 1 
   FFARR(COUNTR) = Q 
   zfearr(countr) = z
+
+  optical_depth_component = 0.0_prec 
 
   RHO = OMEGA_NR*RHO_CRITICAL ! 10^10 M_solar / Mpc^3 
   RHO_BARYON = OMEGA_B*RHO_CRITICAL ! 10^10 M_solar / Mpc^3 
@@ -333,12 +336,14 @@ PROGRAM REION
      gammapi = (gpi_pop2*source*1.0e-10_prec)*fesc*lmfp*&
           &(1.0_prec+z)**3*(cmbympc**2)/yrbys ! s^-1
      
-     write (*,'(F4.1,4E11.3E2)'), z, q, source, gammapi, nphdot 
+     write (*,'(F4.1,5E11.3E2)'), z, q, source, gammapi, nphdot, x_ii
      
      !-------------------------
 
      mminc = getjmc(z)
      mminh = getjmh(z)
+
+     optical_depth_component(i) = dtdz(z) * speed_of_light * (1.0_prec+z)**3 * nh * (1.0_prec-x_ii)
 
   END DO
 

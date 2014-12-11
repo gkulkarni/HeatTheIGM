@@ -5,3 +5,4 @@ thermal
 *.chk
 *.DS_Store
 *o
+log.txt

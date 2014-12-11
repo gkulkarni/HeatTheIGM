@@ -76,7 +76,6 @@ MODULE CONSTANTS
        &TABGRF_DZ = 0.005_PREC, &
        &FSTAR = 0.002E0_PREC, &
        &FSTAR_POP3 = 0.001E0_PREC, &
-!!$       &FSTAR_POP3 = 0.004E0_PREC, &
        &IGMDCRIT_PREO = 60.0_PREC, & ! dimensionless; IGMDCRIT_PREO is the 
                                 ! critical density of IGM in the pre-overlap stage.  Only 
                                 ! regions with density less than this will be ionized in that
@@ -87,7 +86,7 @@ MODULE CONSTANTS
        &ABATIC_GAMMA = 1.0_PREC, & ! dimensionless; adiabatic index for 
                                 ! baryons
        &BURST_TOTAL_MASS = 1.0E-4_PREC ! 10^10 M_solar; total mass used 
-  ! in starburst population synthesis.
+                                       ! in starburst population synthesis.
 
   INTEGER, PARAMETER :: KEY = 6, & ! KEY and MAXINT control DQAGE
        &MAXINT = 200 

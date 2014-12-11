@@ -25,7 +25,8 @@ MODULE STORAGE
        &mstardot_halosh, mgas_halosh, pop3_stellar_mass, &
        &pop3_stellar_age, pop3_stellar_ngamma, ismz_halosc, &
        &ismz_halosh, aux_halosc, aux_halosh, nofmc, nofmh, &
-       &t_zn, t_si, t_fe, t_o, sd93_tvir, sd93_coolrate, halol1500 
+       &t_zn, t_si, t_fe, t_o, sd93_tvir, sd93_coolrate, &
+       &halol1500, optical_depth_component 
   integer, dimension(:), allocatable :: strpop_halosc, strpop_halosh 
   INTEGER, DIMENSION(1) :: ALOC, ALC
   REAL(KIND = PREC), DIMENSION(MAXINT) :: ALIST, BLIST, ELIST, &
