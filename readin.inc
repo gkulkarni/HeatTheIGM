@@ -2,7 +2,7 @@
   ! Read population synthesis data.  This is from 
   ! Starburst99 output `reion-generic'.  nnudot.dat 
   ! is written by popsyn/intspectrum.f90.  
-  OPEN(11, FILE='/home/girish/thermal/nnudot.dat', STATUS='OLD', ACTION='READ') 
+  OPEN(11, FILE='nnudot.dat', STATUS='OLD', ACTION='READ') 
   READ(11, *) FREQ, NDOTM  
   NUMBER_OF_LINES = 0 
   DO 
@@ -21,7 +21,7 @@
   END DO
   CLOSE(11) 
 
-  OPEN(11, FILE='/home/girish/thermal/dndm_PopIII_salpeter_star', STATUS='OLD', ACTION='READ') 
+  OPEN(11, FILE='dndm_PopIII_salpeter_star', STATUS='OLD', ACTION='READ') 
   READ(11, *) FREQ, NDOTM  
   NUMBER_OF_LINES = 0 
   DO 
@@ -45,8 +45,8 @@
   ! Read in solution to Freidmann equation for the background 
   ! cosmology.  This gives a redshift--cosmic time conversion
   ! table.  age.dat and z.dat are produced using bg_cosmo.f90.
-  OPEN(11, FILE='/home/girish/thermal/age.dat', STATUS='OLD', ACTION='READ')
-  OPEN(12, FILE='/home/girish/thermal/z.dat', STATUS='OLD', ACTION='READ') 
+  OPEN(11, FILE='age.dat', STATUS='OLD', ACTION='READ')
+  OPEN(12, FILE='z.dat', STATUS='OLD', ACTION='READ') 
 
   ! Read in age of the universe from age.dat and count number
   ! of lines in z.dat.  
@@ -76,7 +76,7 @@
 
   ! Read in values of mass, sigma and dsigma/dmass from 
   ! tabsig.dat.  tabsig.dat is produced using tabsig.f90. 
-  OPEN(11, FILE='/home/girish/thermal/tabsig.dat', STATUS='OLD', ACTION='READ') 
+  OPEN(11, FILE='tabsig.dat', STATUS='OLD', ACTION='READ') 
 
   ! Count number of lines in tabsig.dat. 
   NUMBER_OF_LINES = 0
@@ -107,7 +107,7 @@
   ! Read in values of the growth factor and its redshift
   ! derivative against redshift.  tabgrf.f90 is produced 
   ! using tabgrf.f90.  
-  OPEN(11, FILE='/home/girish/thermal/tabgrf.dat', STATUS='OLD', ACTION='READ') 
+  OPEN(11, FILE='tabgrf.dat', STATUS='OLD', ACTION='READ') 
 
   ! Count number of lines in tabgrf.dat.
   NUMBER_OF_LINES = 0
@@ -135,7 +135,7 @@
 
   !--------------------------
 
-  OPEN(11, FILE='/home/girish/thermal/data/popsyn/l1500-spectrum-lt.dat', STATUS='OLD', ACTION='READ')
+  OPEN(11, FILE='data/popsyn/l1500-spectrum-lt.dat', STATUS='OLD', ACTION='READ')
 
   ! Count number of lines in file.
   NUMBER_OF_LINES = 0
@@ -156,7 +156,7 @@
 
   !--------------------------
 
-  OPEN(11, FILE='/home/girish/thermal/data/lifetime.mm89.dat', STATUS='OLD', ACTION='READ')
+  OPEN(11, FILE='data/lifetime.mm89.dat', STATUS='OLD', ACTION='READ')
   ALLOCATE(STELLAR_MASS(24)) 
   ALLOCATE(STELLAR_AGE(24)) 
   DO I = 1, 24 
@@ -168,7 +168,7 @@
 
   !--------------------------
 
-  OPEN(11, FILE='/home/girish/thermal/data/pop3_ngamma_schaerrer.dat', STATUS='OLD', ACTION='READ')
+  OPEN(11, FILE='data/pop3_ngamma_schaerrer.dat', STATUS='OLD', ACTION='READ')
   ALLOCATE(POP3_STELLAR_MASS(12)) 
   ALLOCATE(POP3_STELLAR_AGE(12)) 
   ALLOCATE(POP3_STELLAR_NGAMMA(12)) 
@@ -194,7 +194,7 @@
 !!$  YIELDS(3,1,1) = -3.0_prec
 !!$  YIELDS(4,1,1) = -2.0_prec
 
-  OPEN(11, FILE='/home/girish/thermal/data/yields.wwhw.Z0', STATUS='OLD', ACTION='READ')
+  OPEN(11, FILE='data/yields.wwhw.Z0', STATUS='OLD', ACTION='READ')
   DO I = 2, 17
      READ(11, *) YIELD_RECORD 
      DO J = 1, DATA_COLUMNS 
@@ -203,7 +203,7 @@
   END DO
   CLOSE(11)
 
-  OPEN(11, FILE='/home/girish/thermal/data/yields.wwhw.Z00001', STATUS='OLD', ACTION='READ')
+  OPEN(11, FILE='data/yields.wwhw.Z00001', STATUS='OLD', ACTION='READ')
   DO I = 2, 17
      READ(11, *) YIELD_RECORD 
      DO J = 1, DATA_COLUMNS 
@@ -212,7 +212,7 @@
   END DO
   CLOSE(11)
 
-  OPEN(11, FILE='/home/girish/thermal/data/yields.wwhw.Z001', STATUS='OLD', ACTION='READ')
+  OPEN(11, FILE='data/yields.wwhw.Z001', STATUS='OLD', ACTION='READ')
   DO I = 2, 17
      READ(11, *) YIELD_RECORD 
      DO J = 1, DATA_COLUMNS 
@@ -221,7 +221,7 @@
   END DO
   CLOSE(11)
 
-  OPEN(11, FILE='/home/girish/thermal/data/yields.wwhw.Z01', STATUS='OLD', ACTION='READ')
+  OPEN(11, FILE='data/yields.wwhw.Z01', STATUS='OLD', ACTION='READ')
   DO I = 2, 17
      READ(11, *) YIELD_RECORD 
      DO J = 1, DATA_COLUMNS 
@@ -233,7 +233,7 @@
   !-------------------------
 
   allocate(sd93_tvir(181), sd93_coolrate(181)) 
-  open(11, file='/home/girish/thermal/data/SD93_nie_zero.dat', status='old', action='read') 
+  open(11, file='data/SD93_nie_zero.dat', status='old', action='read') 
   do i = 1, 181 
      read(11, *) sdt, sdl 
      sd93_tvir(i) = sdt ! K 
