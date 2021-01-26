@@ -478,13 +478,13 @@ MODULE INTERFACES
 
      ! ---------------------- 
 
-     subroutine nfchk()
+     ! subroutine nfchk()
 
-       use constants
-       use storage 
-       implicit none 
+     !   use constants
+     !   use storage 
+     !   implicit none 
 
-     end subroutine nfchk
+     ! end subroutine nfchk
 
      ! ---------------------- 
 
