@@ -6,11 +6,11 @@
 ; This file plots cross-section weighted Z_ISM, in contrast to
 ; zism.pro.
 
-;; set_plot, 'ps'
-;; device, filename='zism_cs.ps', xsize=7.0, ysize=7.0, /inches, color=1, yoffset=1.0
+set_plot, 'ps'
+device, filename='zism_cs.ps', xsize=7.0, ysize=7.0, /inches, color=1, yoffset=1.0
 
-window, xsize=1000, ysize=1000
-Device, decomposed=0
+;; window, xsize=1000, ysize=1000
+;; Device, decomposed=0
 TvLCT, 255, 0, 0, 2 
 TvLCT, 0, 127, 255, 3
 TvLCT, 255, 255, 0, 4
@@ -18,9 +18,9 @@ TvLCT, 0, 0, 255, 5
 !P.charsize = 1.5 
 
 restore, 'halo_template.sav'
-zism_data = read_ascii('set49/avghalos_zism.out', template=stars_template)
-n_data = read_ascii('set89/nofmh.out', template=stars_template) 
-m_data = read_ascii('set49/avghalos.out', template=stars_template) 
+zism_data = read_ascii('../avghalos_zism.out', template=stars_template)
+n_data = read_ascii('../nofmh.out', template=stars_template) 
+m_data = read_ascii('../avghalos.out', template=stars_template) 
 ; was set49 
 
 z = zism_data.field001[0,*]
@@ -50,7 +50,7 @@ for i = 0, 99 do begin
 endfor 
 
 plot, z, avgz_cs, xrange=[1,20], yrange=[1.0e-4,1.0e0], /ylog, /xlog, $
-      ytickformat='exponent', xtitle='!6z', ytitle='Z/Z!D!9n!X!N'
+      ytickformat='exp2', xtitle='!6z', ytitle='Z/Z!D!9n!X!N'
 
 ;; openr, lun, '../data/prochaska03.dat', /get_lun
 ;; obsdata_zism = fltarr(2, 109)
@@ -77,8 +77,8 @@ dx2 = dxp
 dx1 = -dxm 
 plot_err, x, Z_rafelski, dy, dy2=dy2, dx1=dx1, dx2=dx2, color=5
 
-legend, ['Rafelski et al. 2012','Rafelski et al. 2012 (binned)'], linestyle=[0,0], psym=[7,8], $
-        color=[2,5], /bottom, charsize=1
+;; legend, ['Rafelski et al. 2012','Rafelski et al. 2012 (binned)'], linestyle=[0,0], psym=[7,8], $
+;;         color=[2,5], /bottom, charsize=1
 
 
 ;; device, /close_file
